@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  background-color: #a0cfa0;
+  color: #1b2b1b;
+  font-family: 'Press Start 2P', monospace;
+  text-align: center;
+  padding-top: 10px;
+  user-select: none;
+}
+
+h1 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+#screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  border: 3px solid #2a472a;
+  background: #d8f8d8;
+  image-rendering: pixelated;
+  border-radius: 6px;
+}
+
+#battle {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#battle-box {
+  width: 350px;
+  background-color: #f0fff0;
+  border: 3px solid #2a472a;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+#buttons {
+  margin-top: 10px;
+}
+
+button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  background-color: #c8e6c9;
+  border: 2px solid #2a472a;
+  margin: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #b2dfb2;
+}
+
+.hidden {
+  display: none;
+}
+
+#text {
+  font-size: 10px;
+  line-height: 1.4em;
+  margin: 5px 0;
+}
+
+#enemy {
+  font-size: 10px;
+}

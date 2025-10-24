@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ポケモン風ミニゲーム（初代風）</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>ポケモン風ミニゲーム</h1>
+  <div id="screen">
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+  </div>
+
+  <div id="battle" class="hidden">
+    <div id="battle-box">
+      <p id="text">あ！ やせいのモンスターが とびだしてきた！</p>
+      <div id="enemy">👾 HP: <span id="enemyHP">30</span></div>
+      <div id="buttons">
+        <button id="attackBtn">▶ たたかう</button>
+        <button id="runBtn">▶ にげる</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
