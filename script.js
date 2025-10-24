@@ -12,21 +12,16 @@ let inBattle = false;
 let playerHP = 50;
 let enemyHP = 30;
 
-// 草むらエリア
 const grassAreas = [
   { x: 50, y: 50, w: 100, h: 100 },
   { x: 250, y: 200, w: 100, h: 120 }
 ];
 
-// 描画
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // 草むら
   ctx.fillStyle = '#8ccf8c';
   grassAreas.forEach(g => ctx.fillRect(g.x, g.y, g.w, g.h));
 
-  // プレイヤー
   ctx.fillStyle = '#f4e04d';
   ctx.fillRect(player.x, player.y, player.size, player.size);
   ctx.strokeStyle = '#c4b02d';
@@ -35,7 +30,6 @@ function draw() {
   if (!inBattle) requestAnimationFrame(draw);
 }
 
-// キー操作
 document.addEventListener('keydown', (e) => {
   if (inBattle) return;
   const step = 8;
@@ -53,7 +47,6 @@ function isInGrass(x, y) {
   return grassAreas.some(g => x > g.x && x < g.x + g.w && y > g.y && y < g.y + g.h);
 }
 
-// 戦闘開始
 function startBattle() {
   inBattle = true;
   battleDiv.classList.remove('hidden');
@@ -63,10 +56,8 @@ function startBattle() {
   battleMessage.textContent = "あ！ やせいのモンスターが とびだしてきた！";
 }
 
-// 戦闘ボタン
 document.getElementById('attackBtn').addEventListener('click', () => {
   if (!inBattle) return;
-
   const dmg = Math.floor(Math.random() * 10) + 5;
   enemyHP -= dmg;
   if (enemyHP <= 0) {
@@ -76,14 +67,11 @@ document.getElementById('attackBtn').addEventListener('click', () => {
     setTimeout(endBattle, 1000);
     return;
   }
-
   battleMessage.textContent = `敵に${dmg}ダメージ！`;
   updateHPBars();
-
   setTimeout(enemyAttack, 600);
 });
 
-// 敵の反撃
 function enemyAttack() {
   const enemyDmg = Math.floor(Math.random() * 8) + 3;
   playerHP -= enemyDmg;
@@ -98,11 +86,9 @@ function enemyAttack() {
   updateHPBars();
 }
 
-// ボールで捕獲
 document.getElementById('ballBtn').addEventListener('click', () => {
   if (!inBattle) return;
-
-  const catchRate = Math.max(10, 50 - enemyHP); // HP低いほど捕獲しやすい
+  const catchRate = Math.max(10, 50 - enemyHP);
   const roll = Math.floor(Math.random() * 100);
   if (roll < catchRate) {
     battleMessage.textContent = `ボールで捕まえた！🎉`;
@@ -130,7 +116,6 @@ function endBattle() {
   draw();
 }
 
-// スタートボタンでゲーム開始
 startBtn.addEventListener('click', () => {
   startScreen.classList.add('hidden');
   canvas.classList.remove('hidden');
