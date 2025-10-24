@@ -71,33 +71,50 @@ document.getElementById('attackBtn').addEventListener('click', () => {
     enemyHP = 0;
     battleMessage.textContent = `敵に${dmg}ダメージ！ たおした！🎉`;
     updateHPBars();
-    endBattle();
+    setTimeout(endBattle, 1000);
     return;
   }
 
   battleMessage.textContent = `敵に${dmg}ダメージ！`;
   updateHPBars();
 
-  // 敵の反撃
-  setTimeout(() => {
-    const enemyDmg = Math.floor(Math.random() * 8) + 3;
-    playerHP -= enemyDmg;
-    if (playerHP <= 0) {
-      playerHP = 0;
-      battleMessage.textContent = `敵のこうげき！ ${enemyDmg}ダメージ！ まけた💀`;
-      updateHPBars();
-      endBattle();
-      return;
-    }
-    battleMessage.textContent += `\n敵のこうげき！ ${enemyDmg}ダメージ！`;
+  setTimeout(enemyAttack, 600);
+});
+
+// 敵の反撃
+function enemyAttack() {
+  const enemyDmg = Math.floor(Math.random() * 8) + 3;
+  playerHP -= enemyDmg;
+  if (playerHP <= 0) {
+    playerHP = 0;
+    battleMessage.textContent = `敵のこうげき！ ${enemyDmg}ダメージ！ まけた💀`;
     updateHPBars();
-  }, 600);
+    setTimeout(endBattle, 1000);
+    return;
+  }
+  battleMessage.textContent += `\n敵のこうげき！ ${enemyDmg}ダメージ！`;
+  updateHPBars();
+}
+
+// ボールで捕獲
+document.getElementById('ballBtn').addEventListener('click', () => {
+  if (!inBattle) return;
+
+  const catchRate = Math.max(10, 50 - enemyHP); // HP低いほど捕獲しやすい
+  const roll = Math.floor(Math.random() * 100);
+  if (roll < catchRate) {
+    battleMessage.textContent = `ボールで捕まえた！🎉`;
+    setTimeout(endBattle, 1000);
+  } else {
+    battleMessage.textContent = `ボールに失敗…`;
+    setTimeout(enemyAttack, 500);
+  }
 });
 
 document.getElementById('runBtn').addEventListener('click', () => {
   if (!inBattle) return;
   battleMessage.textContent = "うまくにげた！💨";
-  setTimeout(endBattle, 1000);
+  setTimeout(endBattle, 500);
 });
 
 function updateHPBars() {
