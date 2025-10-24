@@ -2,22 +2,26 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ポケモン風ミニゲーム（初代風）</title>
+  <title>ポケモン風ミニゲーム（完全版）</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>ポケモン風ミニゲーム</h1>
-  <div id="screen">
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
-  </div>
 
-  <div id="battle" class="hidden">
-    <div id="battle-box">
-      <p id="text">あ！ やせいのモンスターが とびだしてきた！</p>
-      <div id="enemy">👾 HP: <span id="enemyHP">30</span></div>
-      <div id="buttons">
-        <button id="attackBtn">▶ たたかう</button>
-        <button id="runBtn">▶ にげる</button>
+  <div id="game-container">
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <div id="battle" class="hidden">
+      <div id="battle-box">
+        <div id="enemy">👾</div>
+        <div class="hp-bar"><div id="enemyHPBar" class="hp"></div></div>
+        <div id="player">🟨</div>
+        <div class="hp-bar"><div id="playerHPBar" class="hp"></div></div>
+        <div id="action-area">
+          <button id="attackBtn">▶ たたかう</button>
+          <button id="runBtn">▶ にげる</button>
+          <p id="battle-message">戦闘開始！</p>
+        </div>
       </div>
     </div>
   </div>
