@@ -27,6 +27,28 @@ canvas {
   border-radius: 6px;
 }
 
+.hidden {
+  display: none;
+}
+
+#startScreen {
+  margin: 100px auto;
+}
+
+#startBtn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  padding: 10px 16px;
+  border: 2px solid #2a472a;
+  border-radius: 6px;
+  background-color: #c8e6c9;
+  cursor: pointer;
+}
+
+#startBtn:hover {
+  background-color: #b2dfb2;
+}
+
 #battle {
   position: absolute;
   top: 0;
@@ -79,29 +101,7 @@ button:hover {
   background-color: #b2dfb2;
 }
 
-.hidden {
-  display: none;
-}
-
 #battle-message {
   font-size: 10px;
   margin-top: 4px;
-}
-
-#startScreen {
-  margin: 100px auto;
-}
-
-#startBtn {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 12px;
-  padding: 10px 16px;
-  border: 2px solid #2a472a;
-  border-radius: 6px;
-  background-color: #c8e6c9;
-  cursor: pointer;
-}
-
-#startBtn:hover {
-  background-color: #b2dfb2;
 }
