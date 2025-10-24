@@ -9,7 +9,12 @@
   <h1>ポケモン風ミニゲーム</h1>
 
   <div id="game-container">
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <!-- スタート画面 -->
+    <div id="startScreen">
+      <button id="startBtn">ゲームスタート！</button>
+    </div>
+
+    <canvas id="gameCanvas" width="400" height="400" class="hidden"></canvas>
 
     <div id="battle" class="hidden">
       <div id="battle-box">
