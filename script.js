@@ -4,6 +4,8 @@ const battleDiv = document.getElementById('battle');
 const battleMessage = document.getElementById('battle-message');
 const playerHPBar = document.getElementById('playerHPBar');
 const enemyHPBar = document.getElementById('enemyHPBar');
+const startBtn = document.getElementById('startBtn');
+const startScreen = document.getElementById('startScreen');
 
 let player = { x: 180, y: 180, size: 16 };
 let inBattle = false;
@@ -128,5 +130,9 @@ function endBattle() {
   draw();
 }
 
-// 初期描画
-draw();
+// スタートボタンでゲーム開始
+startBtn.addEventListener('click', () => {
+  startScreen.classList.add('hidden');
+  canvas.classList.remove('hidden');
+  draw();
+});
